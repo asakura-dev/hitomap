@@ -1,0 +1,241 @@
+.clearfix:after {
+    content: "";
+    clear: both;
+    display: block;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background: #ccc;
+    overflow: hidden;
+    position: relative;
+}
+hr{
+    border: 0;
+    height: 1px;
+    background: #999;
+    background-image: -webkit-linear-gradient(left, #ccc, #999, #ccc);
+    background-image:    -moz-linear-gradient(left, #ccc, #999, #ccc);
+    background-image:     -ms-linear-gradient(left, #ccc, #999, #ccc);
+    background-image:      -o-linear-gradient(left, #ccc, #999, #ccc);
+}
+.field {
+    margin:0;
+    panel:0;
+    overflow:hidden;
+    position:relative;
+}
+.content{
+    width: 10px;
+    height: 10px;
+    background: #ddd;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /*background: linear-gradient(white, gray);*/
+    background: url('bg.png');
+    z-index: 10;
+}
+
+.panel{
+    width: 10px;
+    height: 10px;
+    background: #fff;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    z-index: 100;
+    opacity: 0.8;
+    box-sizing:border-box;
+    border:1px solid #ccc;
+}
+
+.panel_controller{
+    width: 10px;
+    height: 10px;
+    /* border:1px solid #fff; */
+    background: #999;
+    box-sizing:border-box;
+    overflow:hidden;
+    text-align:center;
+    display:table-cell;
+    vertical-align:middle;
+    line-height:100%;
+    color:#fff;
+    font-size:12px;
+    position:absolute;
+}
+.panel_controller:hover{
+    cursor: move;
+}
+
+
+.toolbox {
+    position: absolute;
+    z-index: 100;
+    top: 5px;
+    left: 210px;
+}
+input.user_input {
+    border: 1px solid rgb(187, 187, 187);
+    border-image-source: initial;
+    border-image-slice: initial;
+    border-image-width: initial;
+    border-image-outset: initial;
+    border-image-repeat: initial;
+    height: 25px;
+    line-height: 25px;
+    box-sizing: border-box;
+    padding: 5px;
+    width: 120px;
+    font-size: 12px;
+    vertical-align: middle;
+}
+
+.btn {
+    outline:0;
+    padding: 0px 10px;
+    border-radius: 2px;
+    text-decoration: none;
+    font-size: 14px;
+    box-sizing: border-box;
+    height: 25px;
+    display: inline-block;
+    line-height: 25px;
+    vertical-align: top;
+    background-color: #0396A6;
+    border:1px solid #026972;
+    color: rgb(255, 255, 255);
+}
+.btn:hover{
+    background-color:#03afbf;
+}
+.user{
+    width:80px;
+    height:110px;
+    background:#fff;
+    border-radius:4px;
+    padding:2px;
+    position:absolute;
+    top:10px;
+    left:10px;
+    border:1px solid #ccc;
+}
+.user_btns{
+    height:15px;
+    padding:2px;
+}
+.user_info_btn{
+    font-size:12px;
+    color:#fff;
+    background:#999;
+    display:block;
+    height:15px;
+    width:15px;
+    line-height:15px;
+    border-radius:50%;
+    text-align:center;
+    float:right;
+}
+.user_delete_btn{
+    font-size:12px;
+    color:#fff;
+    background:#e14b51;
+    display:block;
+    height:15px;
+    width:15px;
+    line-height:15px;
+    border-radius:50%;
+    text-align:center;
+    float:left;
+}
+.user_icon{
+    text-align:center;
+}
+.user_icon img{
+    width:70px;
+    height:70px;
+}
+.user_name{
+    font-size:10px;
+    text-align:center;
+    overflow:hidden;
+}
+
+.debugger{
+    background: #f7f76f;
+    width: 300px;
+    height: 500px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-index: 10000;
+    opacity: 0.9;
+}
+
+.about{
+    width:400px;
+    position:absolute;
+    left:5px;
+    bottom:5px;
+    z-index:100;
+}
+.about_logo{
+    height:40px;
+    width: 180px;
+    position:relative;
+    transition: background-color 0.3s linear;
+    -moz-transition: background-color 0.3s linear;
+    -ms-transition: background-color 0.3s linear;
+    -webkit-transition: background-color 0.3s linear;
+    -o-transition: background-color 0.3s linear;
+}
+.about_logo.actived{
+    background:rgba(255,255,255,0.9);
+}
+.about_logo:hover{
+    background:#fff;
+}
+.about_logo img{
+    float:left;
+}
+.about_text{
+    width:400px;
+    height:200px;
+    font-size:12px;
+    padding:0 10px 10px 10px;
+    background:rgba(255,255,255,0.9);
+    border:1px solid #ccc;
+    overflow:scroll;
+}
+.about_text h2{
+    margin:5px 0;
+    padding:0;
+    font-size:14px;
+    font-weight:bold;
+}
+.about_show_btn{
+    width: 0;
+    height: 0;
+    border: 20px solid transparent;
+    border-bottom: 20px solid #0396A6;
+    bottom:8px;
+    right:10px;
+    position: absolute;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+}
+.about_hide_btn{
+    width: 0;
+    height: 0;
+    border: 20px solid transparent;
+    border-top: 20px solid #0396A6;
+    top: 12px;
+    right:10px;
+    position: absolute;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+}
+.warning{
+    color:#ff0000;
+}

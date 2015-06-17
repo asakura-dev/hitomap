@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+    <html lang="ja">
+    <head>
+      <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+      <title>ヒトマップ(仮)</title>
+      <!-- JS -->
+      <script type="text/javascript" src="//code.jquery.com/jquery-2.1.0.js"></script>
+      <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+      <script type="text/javascript" src="//ajax.aspnetcdn.com/ajax/knockout/knockout-3.0.0.js"></script>
+      <script type="text/javascript" src="//cdn.mlkcca.com/v0.2.8/milkcocoa.js"></script>
+      <script type="text/javascript" src="./js/main.js"></script>
+      <!-- CSS -->
+      <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
+      <link rel="stylesheet" type="text/css" href="./main.css">
+    </head>
+    <body data-bind="with:field">
+      <div class="field" data-bind=" style:{height: field.height() + 'px', width: field.width() + 'px'}">
+	<div class="panel" data-bind="style:{height: panel.height() +'px', width: panel.width() + 'px' }">
+          <div class="panel_controller" data-bind="style:{position:'absolute', height: panel_controller.height() +'px', width: panel_controller.width() + 'px' }">
+	    がめん
+	  </div>
+	</div>
+	<div class="toolbox" data-bind="with:$root.toolbox">
+	  <form data-bind="submit: addUser">
+	    <input class="user_input" placeholder="@hogehoge" type="text" data-bind="value: userName">
+	    <button type="submit" class="btn">ユーザを追加</button>
+	  </form>
+	</div>
+	<div class="about" data-bind="with:$root.about">
+	  <div class="about_logo" data-bind="css:{ actived: status() == true}">
+	    <img src="./logo.png" data-bind="click:toggleAbout">
+	    <span class="about_show_btn" data-bind="click:toggleAbout,visible:status() == false"></span>
+	    <span class="about_hide_btn" data-bind="click:toggleAbout,visible:status"></span>
+	  </div>
+	  <div class="about_text" data-bind="visible:status">
+	    <span class="warning">開発中(未完成)</span>
+	    <br>
+	    ヒトマップは，Twitterからユーザ情報を取得して，画面に追加できるサービスです．
+	    画面に追加したユーザやユーザの位置座標はこのページを見ている人にリアルタイムに同期されます．<br>
+	    <hr>
+	    <h2>コンセプト</h2>
+	    マップ上でコラボレーションしながらユーザを追加してコミュニティーやクラスタとしてまとめたり，ユーザの関係を表現できるようにすることで，新しいヒト・コミュニティーの発見・理解を助けるサービス<br>
+	    <hr>
+	    <h2>進捗</h2>
+	    2015/02/06<br>
+	    ・ロゴと説明文を追加<br>
+	    2015/02/05<br>
+	    ・<a href="https://mlkcca.com">Milkcocoa</a>で同期するようにした．<br>
+	    2015/02/04<br>
+	    ・<a href="http://knockoutjs.com/">Knockout.js</a>を使うようにした．<br>
+	    2015/02/03<br>
+	    ・Herokuを使うようにした．<br>
+	    ・ユーザ追加の動作を作った．<br>
+	    ・SinatraでTwitterからユーザ情報を取得する機能を作った．<br>
+	    2015/02/02<br>
+	    ・操作パネル(左上)と，画面が連動する動作を作った．<br><hr>
+	    Twitter: @<a href="https://twitter.com/asakura_dev">asakura_dev</a>
+	  </div>
+	</div>
+	<div class="content" data-bind="with:$root.users, style:{height: content.height() +'px', width: content.width() + 'px' ,top: content.top() + 'px', left: content.left() + 'px'}">
+	  <!-- ko foreach: {data: users, afterRender: setDraggable } -->
+	  <div class="user" data-bind="css: id ,style:{top:top() +'px', left: left() + 'px'}">
+	    <div class="user_btns clearfix">
+	      <span class="user_info_btn">?</span>
+	      <span class="user_delete_btn" data-bind="click:$root.users.removeUser">x</span>
+	    </div>
+	    <div class="user_icon clearfix">
+	      <img data-bind="attr: { src : icon_url}">
+	    </div>
+	    <div class="user_name" data-bind="text:screen_name">
+	    </div>
+	  </div>
+	  <!-- /ko -->
+	</div>
+      </div>
+    </body>
+</html>
